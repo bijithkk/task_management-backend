@@ -11,7 +11,6 @@ const taskSchema = new mongoose.Schema(
       type: String,
       required: [true, "Task title is required"],
       trim: true,
-      minlength: [3, "Task title must be at least 3 characters long"],
       maxlength: [100, "Task title cannot exceed 100 characters"],
     },
     description: {
@@ -37,15 +36,6 @@ const taskSchema = new mongoose.Schema(
     },
     recurrenceDays: {
       type: [String],
-      validate: {
-        validator: function (value) {
-          if (this.recurrenceType === "weekly") {
-            return value.length > 0;
-          }
-          return true; 
-        },
-        message: "Select at least one day for weekly recurrence",
-      },
     },
     tags: {
       type: [String], 

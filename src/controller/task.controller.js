@@ -41,16 +41,6 @@ export const createNewTask = asyncHandler(async (req, res) => {
         "Invalid or missing recurrence type"
       );
     }
-
-    if (
-      recurrenceType === "weekly" &&
-      (!recurrenceDays || recurrenceDays.length === 0)
-    ) {
-      throw new ApiError(
-        HTTP_STATUS.BAD_REQUEST,
-        "Select at least one day for weekly recurrence"
-      );
-    }
   }
 
   const cleanedTags = tags
@@ -64,8 +54,7 @@ export const createNewTask = asyncHandler(async (req, res) => {
     cardColor,
     isRecurring,
     recurrenceType: isRecurring ? recurrenceType : undefined,
-    recurrenceDays:
-      isRecurring && recurrenceType === "weekly" ? recurrenceDays : [],
+    recurrenceDays: isRecurring ? recurrenceDays : [],
     tags: cleanedTags,
   });
 
