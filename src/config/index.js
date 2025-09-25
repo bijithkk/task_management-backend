@@ -11,6 +11,6 @@ export const config = {
     expiresIn: process.env.JWT_EXPIRES_IN || '7d',
   },
   cors: {
-    allowedOrigins: process.env.CORS_ALLOWED_ORIGINS?.split(',') || ['http://localhost:7000','http://localhost:5173']
+    allowedOrigins: process.env.CORS_ALLOWED_ORIGINS?.split(',') || ['http://localhost:7000','http://localhost:5173','https://task-management-frontend-mu-steel.vercel.app/']
   }
 };
