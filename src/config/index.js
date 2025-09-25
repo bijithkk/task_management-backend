@@ -3,7 +3,7 @@ export const config = {
   port: parseInt(process.env.PORT || '7000', 10),
   
   database: {
-    uri: process.env.MONGO_URI || 'mongodb://bijithcodeedex_db_user:BNcn7uQd9GYpbSIt@cluster0-shard-00-00.hixfmu1.mongodb.net:27017,cluster0-shard-00-01.hixfmu1.mongodb.net:27017,cluster0-shard-00-02.hixfmu1.mongodb.net:27017/?ssl=true&replicaSet=atlas-xxxxx-shard-0&authSource=admin&retryWrites=true&w=majority',
+    uri: process.env.MONGO_URI || 'mongodb+srv://bijithcodeedex_db_user:BNcn7uQd9GYpbSIt@cluster0.hixfmu1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
   },
 
   jwt: {
