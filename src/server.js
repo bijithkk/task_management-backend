@@ -1,8 +1,11 @@
+import dotenv from 'dotenv';
 import http from "http";
 import { config } from "./config/index.js";
 import { connectDatabase, disconnectDatabase } from "./database/connection.js";
 import { logger } from "./utils/logger.js";
 import app from "./app.js";
+
+dotenv.config();
 
 // Create HTTP server
 const server = http.createServer(app);
