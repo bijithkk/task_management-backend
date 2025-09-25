@@ -83,6 +83,12 @@ export const getAllTasks = asyncHandler(async (req, res) => {
 
   const query = { userId: req.user.id };
 
+  if (search) {
+    query.$or = [
+      { task: { $regex: search, $options: "i" } }
+    ];
+  }
+
   const totalItems = await TaskModel.countDocuments(query);
 
   const pagination = calculatePagination({ page, limit, totalItems });
